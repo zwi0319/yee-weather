@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--    引入在线字体图标-->
+    <link rel="stylesheet" href="//at.alicdn.com/t/c/font_3614958_iscmh7v4itl.css">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="shortcut icon" href="./yee.ico" type="image/x-icon">
+</head>
+<!------------------------------------------------------------------------------->
+<body>
+<nav class="sidebar">
+    <!------------------------------------------------------------>
+    <header>
+        <div class="image-text">
+            <span class="image">
+                <img src="./img/baby.jpg" alt="">
+            </span>
+            <div class="text logo-text">
+                <span class="name">ICEY-yee</span>
+                <span class="profession">仙女宝贝💖 </span>
+            </div>
+        </div>
+        <!--bar收缩展开按钮-->
+        <i class="icon-xiangyou1 iconfont toggle"></i>
+    </header>
+    <!------------------------------------------------------------>
+    <div class="menu-bar">
+        <div class="menu">
+            <ul>
+                <li class="search-box">
+                    <i class="icon-Search iconfont icon"></i>
+                    <label>
+                        <input type="text" placeholder="Search">
+                    </label>
+                </li>
+            </ul>
+            <!--------------------tab切换栏区域----------------->
+            <ul class="menu-links">
+                <li class="nav-link">
+                    <a href="#">
+                        <i class="icon-home iconfont icon"></i>
+                        <span class="text nav-text">我</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="#">
+                        <i class="icon-xiangce1 iconfont icon"></i>
+                        <span class="text nav-text">的</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="#">
+                        <i class="icon-tongzhi iconfont icon"></i>
+                        <span class="text nav-text">仙</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="#">
+                        <i class="icon-daojishi iconfont icon"></i>
+                        <span class="text nav-text">女</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="#">
+                        <i class="icon-shouye iconfont icon"></i>
+                        <span class="text nav-text">宝</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="#">
+                        <i class="icon-tianqi iconfont icon"></i>
+                        <span class="text nav-text">贝</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!----------------------------------------------------bar底部区域-->
+        <div class="bottom-content">
+            <li>
+                <a href="#">
+                    <i class="icon-tuichu iconfont icon"></i>
+                    <span class="text nav-text">Logout</span>
+                </a>
+            </li>
+            <li class="mode">
+                <div class="sun-moon">
+                    <i class="icon-moon iconfont moon icon"></i>
+                    <i class="icon-sun iconfont sun icon"></i>
+                </div>
+                <span class="mode-text text">Dark Mode</span>
+                <div class="toggle-switch">
+                    <span class="switch"></span>
+                </div>
+            </li>
+        </div>
+
+
+    </div>
+</nav>
+<!------------------------------------------->
+<section class="home">
+    <div class="text screenShow " style="display: block">
+        <img src="./img/1-1.jpg" alt="">
+    </div>
+    <div class="text screenShow">
+        <img src="./img/1-2.jpg" alt="">
+    </div>
+    <div class="text screenShow">
+        <img src="./img/1-3.png" alt="">
+    </div>
+    <div class="text screenShow">
+        <img src="./img/1-4.jpg" alt="">
+    </div>
+    <div class="text screenShow">
+        <img src="./img/1-5.jpg" alt="">
+    </div>
+    <!--天气模块-->
+    <div class="text screenShow">
+        <!--        <img src="./img/1-6.jpg" alt="">-->
+        <div id="sec4-app">
+            <div class="sec4_title"><h2>心 <i style="color: var(--primary-color)">气</i> 好 一 点</h2></div>
+            <div class="sec4_search">
+                <input
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="九江"
+                        @keyup.enter="searchEnter"
+                        v-model="city"
+                        class="sec4_input"
+                />
+                <button @click="clickButton" class="sec4_button">搜索</button>
+            </div>
+            <div class="sec4_select">
+                <a href="javascript:" @click="changeCity('南昌')">南昌</a>
+                <a href="javascript:" @click="changeCity('杭州')">杭州</a>
+                <a href="javascript:" @click="changeCity('上海')">上海</a>
+                <a href="javascript:" @click="changeCity('北京')">北京</a>
+                <a href="javascript:" @click="changeCity('广州')">广州</a>
+            </div>
+            <ul class="sec4_ul">
+                <li v-for="item in weatherList" :key="index" class="sec4_li">
+                    <div class="sec4_weather">
+                        <div class="tianqi">{{item.type}}</div>
+                        <div class="qiwen">{{item.low}} ~ {{item.high}}</div>
+                        <div class="date">{{item.date}}</div>
+                        <div class="type">{{item.type}}</div>
+                        <div class="fengxiang">{{item.fengxiang}}</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- 官网提供的 axios 在线地址 -->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!-- 引入在线axios地址 -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="./index.js"></script>
+</body>
+</html>
